@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector("a[rel='ar']");
+    const userAgent = window.navigator.userAgent;
     
-    if (!window.navigator.userAgent.includes("iPhone")) {
-        button.style.display = "none";
-        alert("Esta experiencia de AR solo funciona en iPhone.");
+    // Detecta si el usuario está en un iPhone o iPad
+    if (/iPhone|iPad/i.test(userAgent)) {
+        // Redirige automáticamente al modelo en AR
+        window.location.href = "sistema10.usdz";
+    } else {
+        alert("Esta experiencia de AR solo está disponible en iPhone o iPad.");
     }
 });
